@@ -84,7 +84,6 @@ public class BoardControllerImpl  implements BoardController{
 			}
 	
 			message = "<script>";
-			message += " alert('������ �߰��߽��ϴ�.');";
 			message += " location.href='"+multipartRequest.getContextPath()+"/board/listArticles.do'; ";
 			message +=" </script>";
 		    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -93,7 +92,7 @@ public class BoardControllerImpl  implements BoardController{
 			srcFile.delete();
 			
 			message = " <script>";
-			message +=" alert('������ �߻��߽��ϴ�. �ٽ� �õ��� �ּ���');');";
+	
 			message +=" location.href='"+multipartRequest.getContextPath()+"/board/articleForm.do'; ";
 			message +=" </script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -147,7 +146,6 @@ public class BoardControllerImpl  implements BoardController{
          oldFile.delete();
        }	
        message = "<script>";
-	   message += " alert('���� �����߽��ϴ�.');";
 	   message += " location.href='"+multipartRequest.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 	   message +=" </script>";
        resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -155,7 +153,6 @@ public class BoardControllerImpl  implements BoardController{
       File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
       srcFile.delete();
       message = "<script>";
-	  message += " alert('������ �߻��߽��ϴ�.�ٽ� �������ּ���');";
 	  message += " location.href='"+multipartRequest.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 	  message +=" </script>";
       resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -179,14 +176,12 @@ public class BoardControllerImpl  implements BoardController{
 		FileUtils.deleteDirectory(destDir);
 		
 		message = "<script>";
-		message += " alert('���� �����߽��ϴ�.');";
 		message += " location.href='"+request.getContextPath()+"/board/listArticles.do';";
 		message +=" </script>";
 	    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 	       
 	}catch(Exception e) {
 		message = "<script>";
-		message += " alert('�۾��� ������ �߻��߽��ϴ�.�ٽ� �õ��� �ּ���.');";
 		message += " location.href='"+request.getContextPath()+"/board/listArticles.do';";
 		message +=" </script>";
 	    resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -213,10 +208,10 @@ public class BoardControllerImpl  implements BoardController{
 			MultipartFile mFile = multipartRequest.getFile(fileName);
 			imageFileName=mFile.getOriginalFilename();
 			File file = new File(ARTICLE_IMAGE_REPO +"\\"+"temp"+"\\" + fileName);
-			if(mFile.getSize()!=0){ //File Null Check
-				if(!file.exists()){ //��λ� ������ �������� ���� ���
-					file.getParentFile().mkdirs();  //��ο� �ش��ϴ� ���丮���� ����
-					mFile.transferTo(new File(ARTICLE_IMAGE_REPO +"\\"+"temp"+ "\\"+imageFileName)); //�ӽ÷� ����� multipartFile�� ���� ���Ϸ� ����
+			if(mFile.getSize()!=0){ 
+				if(!file.exists()){
+					file.getParentFile().mkdirs(); 
+					mFile.transferTo(new File(ARTICLE_IMAGE_REPO +"\\"+"temp"+ "\\"+imageFileName)); 
 				}
 			}
 			

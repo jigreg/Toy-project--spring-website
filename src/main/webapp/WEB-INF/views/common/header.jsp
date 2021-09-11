@@ -19,11 +19,11 @@
   <tr>
      <td>
 		<a href="${contextPath}/main.do">
-			<img src="${contextPath}/resources/image/duke_swing.gif"  />
+			<img src="${contextPath}/resources/image/Octocat.png"  />
 		</a>
      </td>
      <td>
-       <h1><font size=30>스프링실습 홈페이지!!</font></h1>
+       <h1><font size=25>대기업을 꿈꾸는 개발자 커뮤니티!</font></h1>
      </td>
      
      <td>
